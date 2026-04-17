@@ -11,6 +11,8 @@
 
 ## 🏗️ Architecture Overview
 
+
+
 This project implements a robust, end-to-end data pipeline designed for high availability, data quality, and compliance in a banking context.
 
 ```mermaid
