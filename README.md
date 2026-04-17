@@ -33,7 +33,6 @@ flowchart LR
 
     E 
     --> F["BI Dashboards"]
-```
 
 ### Key Components
 - **Change Data Capture (CDC)**: Debezium captures row-level changes from the core banking PostgreSQL database and streams them to Kafka.
