@@ -13,14 +13,25 @@
 
 This project implements a robust, end-to-end data pipeline designed for high availability, data quality, and compliance in a banking context.
 
-```mermaid
-graph TD
-    A[PostgreSQL (OLTP)] -->|Debezium CDC| B(Kafka)
-    B -->|Python Consumer| C[MinIO (Data Lake / Bronze)]
-    C -->|Airflow DAG| D[Snowflake / Postgres (Silver)]
-    D -->|dbt Transformations| E[Analytics / Gold]
-    E --> F[BI Dashboards]
-```
+flowchart LR
+    A["PostgreSQL (OLTP)"] 
+    -->|"Debezium CDC"| 
+    B["Kafka"]
+
+    B 
+    -->|"Python Consumer"| 
+    C["MinIO<br/>Data Lake (Bronze)"]
+
+    C 
+    -->|"Airflow DAGs"| 
+    D["Snowflake / PostgreSQL<br/>(Silver)"]
+
+    D 
+    -->|"dbt Transformations"| 
+    E["Analytics Layer<br/>(Gold)"]
+
+    E 
+    --> F["BI Dashboards"]
 
 ### Key Components
 - **Change Data Capture (CDC)**: Debezium captures row-level changes from the core banking PostgreSQL database and streams them to Kafka.
