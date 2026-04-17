@@ -35,7 +35,7 @@ flowchart LR
 
     E 
     --> F["BI Dashboards"]
-
+```
 ### Key Components
 - **Change Data Capture (CDC)**: Debezium captures row-level changes from the core banking PostgreSQL database and streams them to Kafka.
 - **Streaming & Ingestion**: Kafka acts as the central nervous system, decoupling source systems from downstream consumers. A Python consumer writes raw events to MinIO (S3-compatible object storage).
