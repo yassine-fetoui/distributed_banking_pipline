@@ -6,7 +6,16 @@ from datetime import datetime, timedelta
 # Default arguments - Best practices for banking / financial workloads
 # =============================================================================
 
-
+default_args = {
+    "owner": "data-platform-team",
+    "depends_on_past": False,
+    "retries": 3,                    # Increased for reliability
+    "retry_delay": timedelta(minutes=5),
+    "email_on_failure": True,
+    "email_on_retry": False,
+    "email": ["data-alerts@yourbank.com"],   # Replace with your team
+    "execution_timeout": timedelta(hours=2), # Safety net for long runs
+}
 # =============================================================================
 # DAG Definition
 # =============================================================================
